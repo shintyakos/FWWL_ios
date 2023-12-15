@@ -12,7 +12,3 @@ struct LogView: View {
         Text(HomePath.logViewPath.rawValue)
     }
 }
-
-#Preview {
-    LogView()
-}

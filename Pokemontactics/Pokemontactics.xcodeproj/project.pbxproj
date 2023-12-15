@@ -15,7 +15,6 @@
 		F39C8E2C2B156BFA006FD289 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C8E2B2B156BFA006FD289 /* SettingsView.swift */; };
 		F39C8E2E2B156C56006FD289 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C8E2D2B156C56006FD289 /* Destination.swift */; };
 		F3BA27CC2B0B133D0096D1E5 /* PokemontacticsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BA27CB2B0B133D0096D1E5 /* PokemontacticsApp.swift */; };
-		F3BA27CE2B0B133D0096D1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BA27CD2B0B133D0096D1E5 /* ContentView.swift */; };
 		F3BA27D02B0B133D0096D1E5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BA27CF2B0B133D0096D1E5 /* Item.swift */; };
 		F3BA27D22B0B13400096D1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BA27D12B0B13400096D1E5 /* Assets.xcassets */; };
 		F3BA27D52B0B13400096D1E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BA27D42B0B13400096D1E5 /* Preview Assets.xcassets */; };
@@ -62,7 +61,6 @@
 		F39C8E2D2B156C56006FD289 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		F3BA27C82B0B133D0096D1E5 /* Pokemontactics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemontactics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BA27CB2B0B133D0096D1E5 /* PokemontacticsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemontacticsApp.swift; sourceTree = "<group>"; };
-		F3BA27CD2B0B133D0096D1E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3BA27CF2B0B133D0096D1E5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F3BA27D12B0B13400096D1E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3BA27D42B0B13400096D1E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 		F344BBD32B0CF39500744C99 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3BA27CD2B0B133D0096D1E5 /* ContentView.swift */,
 				F344BBD52B0F390800744C99 /* HomeView.swift */,
 				F39C8E272B12EE3B006FD289 /* GameStartView.swift */,
 				F39C8E292B155A09006FD289 /* LogView.swift */,
@@ -447,7 +444,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3BA27CE2B0B133D0096D1E5 /* ContentView.swift in Sources */,
 				F34AFE9A2B12E1330017EF80 /* CustomColor.swift in Sources */,
 				F39C8E2E2B156C56006FD289 /* Destination.swift in Sources */,
 				F39C8E282B12EE3B006FD289 /* GameStartView.swift in Sources */,

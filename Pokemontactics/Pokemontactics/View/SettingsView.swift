@@ -12,7 +12,3 @@ struct SettingsView: View {
         Text(HomePath.settingsPath.rawValue)
     }
 }
-
-#Preview {
-    SettingsView()
-}

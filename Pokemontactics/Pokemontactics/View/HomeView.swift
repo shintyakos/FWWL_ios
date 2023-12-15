@@ -9,9 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var path = NavigationPath()
+    var customNavigationBar: CustomNavigationBar
     
     init() {
-        _ = CustomNavigationBar()
+        customNavigationBar = CustomNavigationBar()
     }
     
     var body: some View {
