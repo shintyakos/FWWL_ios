@@ -23,6 +23,8 @@
 		F3BA27ED2B0B13400096D1E5 /* PokemontacticsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BA27EC2B0B13400096D1E5 /* PokemontacticsUITestsLaunchTests.swift */; };
 		F3D14A0B2B12E55600DD14E9 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D14A0A2B12E55600DD14E9 /* CustomNavigationBar.swift */; };
 		F3D14A0D2B12E8F200DD14E9 /* HomeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D14A0C2B12E8F200DD14E9 /* HomeViewUITests.swift */; };
+		F3F0C8CE2B366249001F7E85 /* GameStartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0C8CD2B366249001F7E85 /* GameStartModel.swift */; };
+		F3F0C8D02B366F43001F7E85 /* GameStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0C8CF2B366F43001F7E85 /* GameStartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		F3BA27EC2B0B13400096D1E5 /* PokemontacticsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemontacticsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3D14A0A2B12E55600DD14E9 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		F3D14A0C2B12E8F200DD14E9 /* HomeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUITests.swift; sourceTree = "<group>"; };
+		F3F0C8CD2B366249001F7E85 /* GameStartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartModel.swift; sourceTree = "<group>"; };
+		F3F0C8CF2B366F43001F7E85 /* GameStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameStartViewModel.swift; path = Pokemontactics/Model/GameStartViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				F3BA27CF2B0B133D0096D1E5 /* Item.swift */,
+				F3F0C8CD2B366249001F7E85 /* GameStartModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		F344BBD92B0F3B1500744C99 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F3F0C8CF2B366F43001F7E85 /* GameStartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -447,7 +453,9 @@
 				F34AFE9A2B12E1330017EF80 /* CustomColor.swift in Sources */,
 				F39C8E2E2B156C56006FD289 /* Destination.swift in Sources */,
 				F39C8E282B12EE3B006FD289 /* GameStartView.swift in Sources */,
+				F3F0C8D02B366F43001F7E85 /* GameStartViewModel.swift in Sources */,
 				F39C8E2A2B155A09006FD289 /* LogView.swift in Sources */,
+				F3F0C8CE2B366249001F7E85 /* GameStartModel.swift in Sources */,
 				F344BBD62B0F390800744C99 /* HomeView.swift in Sources */,
 				F34AFE972B1209E90017EF80 /* CustomButton.swift in Sources */,
 				F3D14A0B2B12E55600DD14E9 /* CustomNavigationBar.swift in Sources */,
