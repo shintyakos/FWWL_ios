@@ -7,122 +7,47 @@
 
 import SwiftUI
 
-struct GameStartView: View {
-    @StateObject var viewModel: GameStartViewModel = GameStartViewModel(model: GameStartModel())
+enum Players: String {
+    case firstplayer = "プレイヤー１"
+    case secondplayer = "プレイヤー2"
+}
 
+struct GameStartView: View {
+
+    @StateObject var viewModel: GameStartViewModel = GameStartViewModel(model: GameStartModel())
+    @FocusState private var focusedField: GameStartViewModel.Field?
+    
     private var safeareaInsets: UIEdgeInsets? {
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
         return windowScene?.windows.first?.safeAreaInsets
     }
-
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
                 TabBarView(viewModel: viewModel)
                 VStack(alignment: .center, spacing: 27) {
-                    ZStack {
-                        VStack(alignment: .center, spacing: 10) {
-                            Text("プレイヤー１")
-                                .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .foregroundColor(.white)
-                            HStack {
-                                Text("名前：")
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .foregroundColor(.white)
-                                TextField("プレイヤー名を入力してください", text: $viewModel.firstPlayerName)
-                                    .textFieldStyle(.roundedBorder)
-                                    .foregroundColor(Color(red: 0.75, green: 0.63, blue: 0.5))
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .frame(height: 30)
-                                    .cornerRadius(3)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 3)
-                                            .inset(by: 1)
-                                            .stroke(Color(red: 0.75, green: 0.63, blue: 0.5), lineWidth: 2)
-                                        
-                                    )
-                            }
-                            HStack {
-                                Text("デッキ：")
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .foregroundColor(.white)
-                                TextField("デッキ名を入力してください", text: $viewModel.firstPlayerDeck)
-                                    .textFieldStyle(.roundedBorder)
-                                    .foregroundColor(Color(red: 0.75, green: 0.63, blue: 0.5))
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .frame(height: 30)
-                                    .cornerRadius(3)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 3)
-                                            .inset(by: 1)
-                                            .stroke(Color(red: 0.75, green: 0.63, blue: 0.5), lineWidth: 2)
-                                        
-                                    )
-                            }
-                        }
-                        .padding(10)
+                    RegisterPlayer(viewModel: viewModel, selectPlayer: Players.firstplayer, focusedField: $focusedField){
+                        print("")
                     }
-                    .frame(width: 324, height: 120)
-                    .background(Color(red: 0.43, green: 0.75, blue: 0.27))
-                    .cornerRadius(4)
-                    .overlay(RoundedRectangle(cornerRadius: 4)
-                        .inset(by: 0.5)
-                        .stroke(Color(red: 0.23, green: 0.45, blue: 0.18), lineWidth: 1)
-                    )
-                    
-                    ZStack {
-                        VStack(alignment: .center, spacing: 10) {
-                            Text("プレイヤー２")
-                                .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .foregroundColor(.white)
-                            HStack {
-                                Text("名前：")
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .foregroundColor(.white)
-                                TextField("プレイヤー名を入力してください", text: $viewModel.secondPlayerName)
-                                    .textFieldStyle(.roundedBorder)
-                                    .foregroundColor(Color(red: 0.75, green: 0.63, blue: 0.5))
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .frame(height: 30)
-                                    .cornerRadius(3)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 3)
-                                            .inset(by: 1)
-                                            .stroke(Color(red: 0.75, green: 0.63, blue: 0.5), lineWidth: 2)
-                                        
-                                    )
-                            }
-                            HStack {
-                                Text("デッキ：")
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .foregroundColor(.white)
-                                TextField("デッキ名を入力してください", text: $viewModel.secondPlayerDeck)
-                                    .textFieldStyle(.roundedBorder)
-                                    .foregroundColor(Color(red: 0.75, green: 0.63, blue: 0.5))
-                                    .font(Font.custom("Roboto", size: 18).weight(.bold))
-                                    .frame(height: 30)
-                                    .cornerRadius(3)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 3)
-                                            .inset(by: 1)
-                                            .stroke(Color(red: 0.75, green: 0.63, blue: 0.5), lineWidth: 2)
-                                        
-                                    )
-                            }
-                        }
-                        .padding(10)
-                    }
-                    .frame(width: 324, height: 120)
-                    .background(Color(red: 0.53, green: 0.8, blue: 0.95))
-                    .cornerRadius(4)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4)
+                        .frame(width: 324, height: 120)
+                        .background(Color(red: 0.43, green: 0.75, blue: 0.27))
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4)
                             .inset(by: 0.5)
-                            .stroke(Color(red: 0.18, green: 0.35, blue: 0.58), lineWidth: 1)
-                    )
+                            .stroke(Color(red: 0.23, green: 0.45, blue: 0.18), lineWidth: 1)
+                        )
+                    
+                    RegisterPlayer(viewModel: viewModel, selectPlayer: Players.secondplayer, focusedField: $focusedField)
+                        .frame(width: 324, height: 120)
+                        .background(Color(red: 0.53, green: 0.8, blue: 0.95))
+                        .cornerRadius(4)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .inset(by: 0.5)
+                                .stroke(Color(red: 0.18, green: 0.35, blue: 0.58), lineWidth: 1)
+                        )
                     
                     Text("制限時間：\(viewModel.limitTime)分")
                         .font(
@@ -156,18 +81,18 @@ struct TabBarView: View {
     init(viewModel: GameStartViewModel) {
         self.viewModel = viewModel
     }
-
+    
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
             VStack(alignment: .center, spacing: 0) {
                 Spacer().frame(height: 13)
                 Text("シングル戦")
-                  .font(
-                    Font.custom("Roboto", size: 14)
-                      .weight(.bold)
-                  )
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(self.viewModel.selectedTab == 1 ? Color.white : Color(red: 0.2, green: 0.23, blue: 0.25).opacity(0.39))
+                    .font(
+                        Font.custom("Roboto", size: 14)
+                            .weight(.bold)
+                    )
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(self.viewModel.selectedTab == 1 ? Color.white : Color(red: 0.2, green: 0.23, blue: 0.25).opacity(0.39))
                 Spacer().frame(height: 16)
                 Divider()
                     .frame(maxWidth: .infinity, maxHeight: 2)
@@ -183,9 +108,9 @@ struct TabBarView: View {
             VStack {
                 Spacer().frame(height: 13)
                 Text("マッチ戦")
-                  .font(Font.custom("Roboto", size: 14))
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(self.viewModel.selectedTab == 2 ? Color.white : Color(red: 0.2, green: 0.23, blue: 0.25).opacity(0.39))
+                    .font(Font.custom("Roboto", size: 14))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(self.viewModel.selectedTab == 2 ? Color.white : Color(red: 0.2, green: 0.23, blue: 0.25).opacity(0.39))
                 Spacer().frame(height: 16)
                 Divider()
                     .frame(maxWidth: .infinity, maxHeight: 2)
@@ -203,6 +128,81 @@ struct TabBarView: View {
         .frame(maxWidth: .infinity)
         .frame(height: 48)
         .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+    }
+}
+
+struct RegisterPlayer: View {
+    var selectPlayer: Players
+    @ObservedObject var viewModel: GameStartViewModel
+    @Binding var focusedField: FocusState<GameStartViewModel.Field?>.Binding
+    
+    init(viewModel: GameStartViewModel, selectPlayer: Players, focusedField: FocusState<GameStartViewModel.Field?>.Binding) {
+        self.viewModel = viewModel
+        self.selectPlayer = selectPlayer
+        self.focusedField = focusedField
+    }
+    
+    var body: some View {
+        ZStack {
+            VStack(alignment: .center, spacing: 10) {
+                Text(self.selectPlayer.rawValue)
+                    .font(Font.custom("Roboto", size: 18).weight(.bold))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.white)
+                HStack {
+                    Text("名前：")
+                        .font(Font.custom("Roboto", size: 18).weight(.bold))
+                        .foregroundColor(.white)
+                    TextField("プレイヤー名を入力してください",
+                              text: selectPlayer == Players.firstplayer ?
+                              $viewModel.firstPlayerName : $viewModel.secondPlayerName
+                    )
+                    .textFieldStyle(.roundedBorder)
+                    .foregroundColor(Color(red: 0.75, green: 0.63, blue: 0.5))
+                    .font(Font.custom("Roboto", size: 18).weight(.bold))
+                    .frame(height: 30)
+                    .cornerRadius(3)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 3)
+                            .inset(by: 1)
+                            .stroke(Color(red: 0.75, green: 0.63, blue: 0.5), lineWidth: 2)
+                        
+                    )
+                    .focused(focusedField, equals: GameStartViewModel.Field.name)
+                    .onTapGesture{
+                        focusedField = .name
+                    }
+                }
+                HStack {
+                    Text("デッキ：")
+                        .font(Font.custom("Roboto", size: 18).weight(.bold))
+                        .foregroundColor(.white)
+                    TextField("デッキ名を入力してください",
+                              text: selectPlayer == Players.firstplayer ?
+                              $viewModel.firstPlayerDeck : $viewModel.secondPlayerDeck
+                    )
+                    .textFieldStyle(.roundedBorder)
+                    .foregroundColor(Color(red: 0.75, green: 0.63, blue: 0.5))
+                    .font(Font.custom("Roboto", size: 18).weight(.bold))
+                    .frame(height: 30)
+                    .cornerRadius(3)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 3)
+                            .inset(by: 1)
+                            .stroke(Color(red: 0.75, green: 0.63, blue: 0.5), lineWidth: 2)
+                        
+                    )
+                    .focused($focusedField, equals: .deck)
+                    .onTapGesture{
+                        viewModel.forcusedField = .deck
+                    }
+                }
+            }
+            .padding(10)
+        }
+        .onTapGesture{
+            viewModel.forcusedField = nil
+        }
     }
 }
 

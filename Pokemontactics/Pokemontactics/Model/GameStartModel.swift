@@ -9,9 +9,9 @@ import Foundation
 
 struct GameStartModel {
     var selectedTab = 1
-    var player1 = Player()
-    var player2 = Player()
-    var limitTime: Int = 75
+    var firstplayer = Player()
+    var secondplayer = Player()
+    var limitTime: Int = 25
 }
 
 class Player {

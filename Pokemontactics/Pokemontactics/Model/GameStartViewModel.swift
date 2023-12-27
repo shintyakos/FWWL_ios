@@ -9,6 +9,11 @@ import Foundation
 
 @MainActor
 class GameStartViewModel: ObservableObject {
+    enum Field: Hashable {
+        case name
+        case deck
+    }
+
     @Published var model: GameStartModel
     
     init(model: GameStartModel) {
@@ -26,37 +31,37 @@ class GameStartViewModel: ObservableObject {
     
     var firstPlayerName: String {
         get {
-            return model.player1.name
+            return model.firstplayer.name
         }
         set {
-            model.player1.name = newValue
+            model.firstplayer.name = newValue
         }
     }
     
     var firstPlayerDeck: String {
         get {
-            return model.player1.deck
+            return model.firstplayer.deck
         }
         set {
-            model.player1.deck = newValue
+            model.firstplayer.deck = newValue
         }
     }
     
     var secondPlayerName: String {
         get {
-            return model.player2.name
+            return model.secondplayer.name
         }
         set {
-            model.player2.name = newValue
+            model.secondplayer.name = newValue
         }
     }
     
     var secondPlayerDeck: String {
         get {
-            return model.player2.deck
+            return model.secondplayer.deck
         }
         set {
-            model.player2.deck = newValue
+            model.secondplayer.deck = newValue
         }
     }
     
@@ -68,6 +73,8 @@ class GameStartViewModel: ObservableObject {
             model.limitTime = newValue
         }
     }
+
+    var forcusedField: Field?
     
     func changeTab(tabId: Int) {
         self.selectedTab = tabId
@@ -82,10 +89,10 @@ class GameStartViewModel: ObservableObject {
     }
     
     func saveData() {
-        NSLog("firstPlayerName: " + model.player1.name)
-        NSLog("firstPlayerDeck: " + model.player1.deck)
-        NSLog("secondPlayerName: " + model.player2.name)
-        NSLog("secondPlayerDeck: " + model.player2.deck)
+        NSLog("firstPlayerName: " + model.firstplayer.name)
+        NSLog("firstPlayerDeck: " + model.firstplayer.deck)
+        NSLog("secondPlayerName: " + model.secondplayer.name)
+        NSLog("secondPlayerDeck: " + model.secondplayer.deck)
         NSLog("limitTime: " + String(model.limitTime))
     }
 }
